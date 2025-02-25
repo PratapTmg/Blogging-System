@@ -1,0 +1,376 @@
+
+------Main Page------
+ * This script is the main page for the Student Community Blog.
+ * It handles the following functionalities:
+ * 
+ * 1. Starts a session and includes the database connection.
+ * 2. Fetches the latest 6 blog entries from the database and stores them in an array.
+ * 3. Checks if a blog upload was successful and sets a flag to show a success popup.
+ * 4. Generates the HTML structure for the page, including:
+ *    - Header with navigation links and search form.
+ *    - Banner section with a welcome message and conditional buttons based on user role.
+ *    - Blog section displaying the latest blogs or a message if no blogs are available.
+ *    - About section with information about the blog community.
+ *    - Footer with social media links and copyright information.
+ * 5. Includes JavaScript to handle the display of the success popup and other interactive elements.
+ * 
+ * PHP Variables:
+ * - $conn: Database connection object.
+ * - $sql: SQL query to fetch the latest blogs.
+ * - $result: Result set from the SQL query.
+ * - $data: Array to store blog information.
+ * - $showSuccessPopup: Boolean flag to indicate if the success popup should be shown.
+ * 
+ * HTML Structure:
+ * - Header: Contains navigation links, search form, and user-specific options.
+ * - Banner: Displays a welcome message and conditional buttons.
+ * - Blog Section: Displays the latest blogs or a message if no blogs are available.
+ * - About Section: Provides information about the blog community.
+ * - Footer: Contains social media links and copyright information.
+ * 
+ * JavaScript:
+ * - Handles the display of the success popup based on URL parameters or session variables.
+ * - Includes external JavaScript files for additional functionality.
+
+
+ -----See own Blog
+ * This script handles the display of a user's blog posts.
+ * 
+ * Functionality:
+ * - Starts a session and includes the database connection.
+ * - Checks if the user is logged in; if not, displays a message and exits.
+ * - Retrieves the logged-in user's ID from the session.
+ * - Fetches the user's blog posts from the database, ordered by the latest post.
+ * - Displays the blog posts in a structured format.
+ * - Provides options to edit or delete each blog post.
+ * - Displays success or error messages if set in the session.
+ * - Includes a navigation bar with links and a search form.
+ * - Includes a footer with social media links.
+ * - Contains JavaScript functions for deleting blog posts, toggling dropdown menus, and hiding messages after a delay.
+ * 
+ * Dependencies:
+ * - connection.php: Database connection script.
+ * - CSS files: blog.css, home.css, myblog.css for styling.
+ * - Font Awesome for icons.
+ * - JavaScript files: home.js, toggleLogout.js for additional functionality.
+ * 
+ * HTML Structure:
+ * - Header with navigation bar.
+ * - Section for displaying blog posts.
+ * - Footer with social media links.
+ * 
+ * JavaScript Functions:
+ * - deleteBlog(blogId): Confirms and redirects to delete the blog post.
+ * - toggleDropdown(): Toggles the display of the dropdown menu.
+ * - logout(): Redirects to the logout script.
+ * - Event listener to close the dropdown when clicking outside.
+ * - Timeout to hide success and error messages after 1.5 seconds.
+ * 
+ * PHP Variables:
+ * - $conn: Database connection object.
+ * - $user_id: ID of the logged-in user.
+ * - $data: Array to store fetched blog posts.
+ * 
+ * PHP Session Variables:
+ * - $_SESSION['user_id']: ID of the logged-in user.
+ * - $_SESSION['success']: Success message to display.
+ * - $_SESSION['error']: Error message to display.
+
+
+ -----See details of the blog
+ * This script displays the details of a specific blog post and related blogs.
+ * 
+ * It includes the following functionalities:
+ * - Fetching and displaying the details of a blog post based on the provided blog ID.
+ * - Displaying related blog posts.
+ * - Providing social media sharing options for the blog post.
+ * - Displaying a navigation bar with options based on user session status.
+ * 
+ * The script performs the following steps:
+ * 1. Includes the database connection file.
+ * 2. Starts a session.
+ * 3. Validates the blog ID from the GET request.
+ * 4. Fetches the blog details from the database.
+ * 5. Displays the blog details in an HTML structure.
+ * 6. Provides social media sharing links.
+ * 7. Displays related blog posts.
+ * 8. Includes a navigation bar and footer.
+
+
+ * 
+ * @file blogDetails.php
+ * @package Blog
+ * @version 1.0
+ * 
+ * @requires connection.php
+ * @requires ../Css/blog.css
+ * @requires ../Css/home.css
+ * @requires ../js/home.js
+ * @requires ../js/toggleLogout.js
+ * 
+ * @param int $id The ID of the blog post to display.
+ * 
+ * @return void
+
+
+ -----Login Process
+ * This script handles the login and registration functionality for a blog platform.
+ * 
+ * It includes the following features:
+ * - Establishes a connection to the MySQL database.
+ * - Displays login and registration forms.
+ * - Handles user registration with validation and error handling.
+ * - Handles user login with validation and error handling.
+ * - Displays success and error messages.
+ * - Redirects users based on their roles (admin or regular user).
+ * - Includes a script to hide messages after a certain time.
+ * 
+ * 
+ * @package    BlogPlatform
+ * @subpackage Authentication
+ * @author     Your Name
+ * @version    1.0
+ * @since      2023-10-01
+ * 
+ * @param string $servername The hostname of the MySQL server.
+ * @param string $username   The username to connect to the MySQL server.
+ * @param string $password   The password to connect to the MySQL server.
+ * @param string $dbname     The name of the database to connect to.
+ * 
+ * @return void
+
+
+-----BlogUpload Process
+/**
+ * This file contains the HTML structure and form for uploading a blog post.
+ * 
+ * The form is divided into multiple steps:
+ * - Step 1: Blog Title
+ * - Step 2: Blog Content
+ * - Step 3: Tags
+ * - Step 4: Cover Image
+ * 
+ * The form uses JavaScript to navigate between steps without reloading the page.
+ * 
+ * @file uploadBlog.php
+ * @path /c:/xampp/htdocs/Bca4thProject/php/crud_operation/uploadBlog.php
+ * 
+ * @dependencies
+ * - ../../Css/edit.css: Styles specific to the blog editor.
+ * - ../../Css/home.css: General styles for the home page.
+ * - ../../js/edit.js: JavaScript for handling form step navigation.
+ * 
+ * @form
+ * - id: blogForm
+ * - action: uploadProcess.php
+ * - method: POST
+ * - enctype: multipart/form-data
+ * 
+ * @steps
+ * - Step 1: Blog Title
+ *   - Input: text
+ *   - id: title
+ *   - name: title
+ *   - placeholder: Enter blog title...
+ *   - required: true
+ * 
+ * - Step 2: Blog Content
+ *   - Input: textarea
+ *   - id: content
+ *   - name: content
+ *   - rows: 10
+ *   - placeholder: Enter content here...
+ *   - required: true
+ * 
+ * - Step 3: Tags
+ *   - Input: text
+ *   - id: tags
+ *   - name: tags
+ *   - placeholder: i.e. #something
+ * 
+ * - Step 4: Cover Image
+ *   - Input: file
+ *   - id: image
+ *   - name: image
+ *   - accept: image/*
+ * 
+ * @footer
+ * - Social media links: Facebook, Instagram, Twitter
+ * - Copyright: © 2024 Students Blog Community. All Rights Reserved.
+ */
+ 
+ * Handles the upload process for blog posts.
+ * 
+ * This script processes form submissions for uploading blog posts, including
+ * handling file uploads for images, validating input, and inserting data into
+ * the database.
+ * 
+ * @package BlogPlatform
+ * @subpackage CRUDOperation
+ * @file uploadProcess.php
+ * 
+ * @uses session_start() Starts a new session or resumes an existing session.
+ * @uses mysqli_connect() Opens a new connection to the MySQL server.
+ * @uses mysqli_prepare() Prepares an SQL statement for execution.
+ * @uses mysqli_stmt_bind_param() Binds variables to a prepared statement as parameters.
+ * @uses mysqli_stmt_execute() Executes a prepared statement.
+ * @uses mysqli_stmt_close() Closes a prepared statement.
+ * @uses mysqli_close() Closes a previously opened database connection.
+ * 
+ * @global array $_POST The HTTP POST variables.
+ * @global array $_FILES The HTTP File Upload variables.
+ * @global array $_SESSION The session variables.
+ * 
+ * @param string $title The title of the blog post.
+ * @param string $content The content of the blog post.
+ * @param string $tags The tags associated with the blog post.
+ * @param int $user_id The ID of the user uploading the blog post.
+ * @param string $banner_url The URL of the uploaded banner image.
+ * 
+ * @return void
+ */
+
+ -----Update Blog
+ /**
+ * This script handles the update operation for a blog post.
+ * 
+ * It supports two main functionalities:
+ * 1. Fetching blog data via a GET request.
+ * 2. Updating blog data via a POST request.
+ * 
+ * The script expects the following:
+ * - A valid session with a logged-in user.
+ * - A database connection included from '../connection.php'.
+ * 
+ * GET Request:
+ * - URL Parameters: 'id' (blog ID), 'api' (flag to indicate API request).
+ * - Returns: JSON response with blog data or an error message.
+ * 
+ * POST Request:
+ * - Form Data: 'blog_id', 'title', 'content', 'tags', 'image' (optional).
+ * - Updates the blog post in the database.
+ * - Redirects to 'myblog.php' with a success or error message.
+ * 
+ * HTML Form:
+ * - Allows users to edit the blog title, content, tags, and upload a new cover image.
+ * 
+ * JavaScript:
+ * - Fetches the blog data on page load and populates the form fields.
+ * 
+ * @package BlogUpdate
+ * @version 1.0
+ * @since 2024
+ */
+
+ -----deleteBlog
+ /**
+ * This script handles the deletion of a blog post.
+ * 
+ * 
+ * The script performs the following actions:
+ * 1. Starts a session.
+ * 2. Includes the database connection file.
+ * 3. Checks if the user is logged in.
+ * 4. Validates the provided blog ID.
+ * 5. Fetches the blog details to ensure the blog exists and belongs to the logged-in user.
+ * 6. Deletes the blog if it exists and the user has permission.
+ * 7. Sets success or error messages in the session and redirects to the user's blog page.
+ * 
+ * @package BlogDeletion
+ * 
+ * @uses session_start() Starts the session.
+ * @uses include '../connection.php' Includes the database connection file.
+ * @uses $_SESSION['user_id'] Checks if the user is logged in.
+ * @uses $_GET['id'] Retrieves the blog ID from the URL.
+ * @uses $conn->prepare() Prepares SQL statements.
+ * @uses $stmt->bind_param() Binds parameters to the SQL statement.
+ * @uses $stmt->execute() Executes the SQL statement.
+ * @uses $stmt->get_result() Retrieves the result set from the executed statement.
+ * @uses $result->num_rows Checks the number of rows in the result set.
+ * @uses $delete_stmt->execute() Executes the delete statement.
+ * @uses $_SESSION['success'] Sets a success message in the session.
+ * @uses $_SESSION['error'] Sets an error message in the session.
+ * @uses header() Redirects to another page.
+ * @uses $stmt->close() Closes the statement.
+ * @uses $conn->close() Closes the database connection.
+ * 
+ * @return void
+ */
+
+
+ -----Admin control-----
+
+ -----Users details
+/**
+ * Admin Panel Page
+ *
+ * This page displays the admin panel where the admin can view and manage users.
+ * It includes a navigation bar, a search form, and a table listing all users.
+ * The admin can remove users from the list.
+ *
+ * HTML Structure:
+ * - Header: Contains the navigation bar with links to Home and Blog List, a search form, and user avatar with logout option.
+ * - Body: Contains a table listing all users with an option to remove each user.
+ *
+ * PHP Functionality:
+ * - Starts a session to check if the user is logged in.
+ * - Includes the database connection file.
+ * - Fetches and displays the list of users from the database.
+ * - Provides a link to remove a user, which triggers a confirmation dialog.
+ * - Handles the deletion of a user and their associated blogs from the database.
+ *
+ * CSS Styling:
+ * - Styles for the body container, table content, table, table headers, and table rows.
+ *
+ * JavaScript:
+ * - Includes a script for handling admin login processes.
+ *
+ * PHP Code for User Deletion:
+ * - Checks if a user ID is provided in the URL.
+ * - Deletes the user's blogs and the user from the database.
+ * - Displays an alert message indicating the success or failure of the deletion.
+ *
+ * Dependencies:
+ * - Font Awesome for icons.
+ * - External CSS file for additional styling.
+ * - External JavaScript file for admin login processes.
+ *
+ * @package AdminPanel
+ */
+
+
+-----blogs details
+
+/**
+ * Admin Panel Page
+ *
+ * This page displays the admin panel for managing blogs
+ * It includes a navigation bar, a search form, and a table listing all blogs.
+ * Admins can delete blogs from this page.
+ *
+ * HTML Structure:
+ * - Header: Contains the navigation bar with links to Home and Users List, and a search form.
+ * - Body: Contains a table listing all blogs with options to delete them.
+ *
+ * PHP Functionality:
+ * - Starts a session to check if the user is logged in.
+ * - Connects to the database to fetch and display blog information.
+ * - Provides functionality to delete a blog.
+ *
+ * CSS:
+ * - Styles for the body container, table, and table rows.
+ *
+ * JavaScript:
+ * - Includes a script for handling admin login processes.
+ *
+ * PHP Includes:
+ * - connection.php: Contains the database connection details.
+ *
+ * Database Queries:
+ * - Fetches blog information along with user details.
+ * - Deletes a blog based on the provided blog ID.
+ *
+ * @package AdminPanel
+ * @version 1.0
+ */
+

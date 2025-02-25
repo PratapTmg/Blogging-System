@@ -1,0 +1,151 @@
+/* Title Section Styling */
+.banner {
+    height: 300px;
+    background-color: #f8f9fa; /* Light gray background */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.banner h1 {
+    font-size: 3rem;
+    color: #007bff; /* Modern Blue */
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.banner p {
+    font-size: 1.2rem;
+    color: #6c757d; /* Medium gray for subheading */
+    margin-bottom: 1rem;
+}
+
+.banner .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: #007bff; /* Blue button */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.banner .btn:hover {
+    background: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slight scale-up on hover */
+}
+.banner img{
+    width: 50%;
+    height: 100%;
+    border-radius: 14px;
+}
+
+/* Blog Section */
+.blog {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    text-align: center;
+    height: auto!important;
+}
+
+.blog .title {
+    font-size: 2rem;
+    color: #007bff; /* Blue */
+    margin-bottom: 0.5rem;
+}
+
+.blog .subheading {
+    font-size: 1.1rem;
+    color: #6c757d; /* Medium gray */
+    margin-bottom: 2rem;
+}
+
+/* Blog Cards */
+.blogs-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.blog-card {
+    background: #fff; /* White */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.article{
+    height: auto!important;
+}
+
+.blog-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.blog-title {
+    font-size: 1.5rem;
+    margin: 1rem;
+    color: #007bff; /* Blue */
+}
+
+.blog-overview {
+    font-size: 1rem;
+    margin: 0 1rem 1rem;
+    color: #6c757d; /* Medium gray */
+}
+
+.btn-dark {
+    display: inline-block;
+    margin: 1rem;
+    padding: 0.5rem 1.5rem;
+    background: #343a40; /* Dark gray */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+.btn-dark:hover {
+    background: #495057; /* Lighter dark gray */
+}
+h1.sub-heading{
+    margin: 5rem 0 2rem 0;
+    text-align: center;
+}
+
+
+.share-buttons {
+    margin: 20px 0;
+}
+.share-buttons a {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 10px 15px;
+    background-color: #0073b1; /* LinkedIn color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.share-buttons a:hover {
+    opacity: 0.8;
+}
+
+
+/*Read more blogs*/

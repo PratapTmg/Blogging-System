@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register & Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f0f0f0;
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            width: 900px;
+            height: 500px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        .panel {
+            /* width: 50%; */
+            height: 100%;
+            position: absolute;
+            top: 0;
+            transition: transform 0.6s ease-in-out, z-index 0.6s;
+        }
+        .left-panel {
+            width: 40%;
+            background: linear-gradient(to right, #2dbd6e, #33cc99);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            left: 0;
+            z-index: 2;
+        }
+        .right-panel {
+            width: 60%;
+            background: white;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 1;
+        }
+        .container.active .left-panel {
+            transform: translateX(150%);
+            z-index: 3;
+        }
+        .container.active .right-panel {
+            transform: translateX(-67%);
+            z-index: 2;
+        }
+        .form-container {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        button {
+            background: linear-gradient(135deg, #2dbd6e, #33cc99);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        button:hover {
+            background: linear-gradient(135deg, #28a96d, #2dbd6e);
+            transform: scale(1.05);
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .hidden {
+            display: none;
+        }
+
+        .getEmail, .getPassword {
+            width: 60%;
+        }
+        #login-form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="panel left-panel" id="left-panel">
+            <h2 id="welcome-text">Welcome Back!</h2>
+            <p>To keep connected with us, please login with your personal info</p>
+            <button id="toggle-login">Sign In</button>
+        </div>
+        <div class="panel right-panel">
+            <div class="form-container" id="register-container">
+                <h2>Create Account</h2>
+                <div class="social-login">
+                    <button>Facebook</button>
+                    <button>Google</button>
+                    <button>LinkedIn</button>
+                </div>
+                <p>or use your email for registration:</p>
+                <form id="registerForm" action="process.php" method="POST">
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <button type="submit">Sign Up</button>
+                </form>
+                <p>Already have an account? <a href="#" id="toggle-register">Login</a></p>
+            </div>
+            <div class="form-container hidden" id="login-container">
+                <h2>Login</h2>
+                <form action="process.php" method="POST" class="form" id="login-form">
+                    <div class="getEmail">
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="getPassword">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" placeholder="Enter password" required>
+                    </div>
+                    <button type="submit" name="login">Login</button>
+                </form>
+                <p>Don't have an account? <a href="#" id="toggle-register">Register</a></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const container = document.getElementById("container");
+            const toggleLogin = document.getElementById("toggle-login");
+            const toggleRegister = document.getElementById("toggle-register");
+            const welcomeText = document.getElementById("welcome-text");
+            const registerContainer = document.getElementById("register-container");
+            const loginContainer = document.getElementById("login-container");
+
+            toggleLogin.addEventListener("click", function() {
+                container.classList.add("active");
+                welcomeText.textContent = "Glad to see you again!";
+                registerContainer.classList.add("hidden");
+                loginContainer.classList.remove("hidden");
+                toggleLogin.textContent = "Sign Up";
+            });
+
+            toggleRegister.addEventListener("click", function() {
+                container.classList.remove("active");
+                welcomeText.textContent = "Join us and explore!";
+                loginContainer.classList.add("hidden");
+                registerContainer.classList.remove("hidden");
+                toggleLogin.textContent = "Sign In";
+            });
+        });
+    </script>
+</body>
+</html>

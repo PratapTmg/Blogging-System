@@ -1,0 +1,221 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #333;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    color: #333;
+}
+
+label, input, textarea, button {
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+/* Banner Styles */
+.banner {
+    padding: 0 !important;
+    width: 95%;
+    height: 60vh;
+    position: relative;
+    /* background: #e7e7e7; */
+    background-size: cover;
+    background-position: center;
+    margin: 1.3em auto;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.banner img#preview {
+    height: 100% !important;
+    border-radius: 15px;
+}
+
+.banner-upload-btn {
+    position: absolute;
+    bottom: 20px;
+    right: -60px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.banner-upload-btn:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.banner-upload-btn img {
+    width: 20px;
+}
+
+/* Blog Styles */
+.blog {
+    background-color: #ffffff;
+    padding: 30px !important;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left !important;
+}
+
+textarea, input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: none;
+    background-color: #f9f9f9;
+    outline: none;
+    transition: all 0.3s ease;
+    color: #333;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+textarea:focus, input:focus {
+    border-color: #007bff;
+    background-color: #ffffff;
+    box-shadow: inset 0 1px 3px rgba(0, 123, 255, 0.3);
+}
+
+.edit-title {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.article {
+    height: 50vh;
+}
+
+.blog-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.btn {
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s ease, box-shadow 0.3s;
+}
+
+.btn.dark {
+    background-color: #007bff;
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn.dark:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn.grey {
+    background-color: #e6e6e6;
+    color: #333;
+}
+
+.btn.grey:hover {
+    background-color: #d4d4d4;
+}
+
+label.upload-btn {
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+label.upload-btn:hover {
+    background-color: #0056b3;
+}
+
+/* New Styles */
+.editContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+}
+
+.blog-upload-container {
+    width: 40%;
+    margin: auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+button {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+    background-color: #4cae4c;
+    transform: translateY(-2px);
+}
+
+button.next-btn, button.prev-btn {
+    margin-top: .7em!important;
+    width: auto;
+    padding: 10px 20px;
+}
+
+button.prev-btn {
+    background-color: #f0ad4e;
+}
+
+button.prev-btn:hover {
+    background-color: #ec971f;
+}

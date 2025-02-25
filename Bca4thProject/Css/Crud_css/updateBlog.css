@@ -1,0 +1,26 @@
+.blog-edit-container {
+    width: 70vw;
+    margin: 40px auto;
+}
+
+.editBlogForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.update-button {
+    width: 20%;
+    margin-left: 40%;
+}
+
+input#title{
+    font-size: 1.2em;
+}
+
+#editBlogForm{
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+}
